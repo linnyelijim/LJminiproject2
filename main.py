@@ -38,6 +38,10 @@ for index, i in enumerate(plots):
         explode=(0.15, 0, 0, 0, 0, 0),
         textprops={'color': "w"}
     )
+    # Removes index name from graph
+    plt.ylabel(
+        ''
+    )
     # Adjusts plot positioning
     plt.subplots_adjust(
         left=0.1,
@@ -54,6 +58,8 @@ for index, i in enumerate(plots):
         bbox_transform=plt.gcf().transFigure)
     # Creates title for the graph
     plt.title(titles[index], fontsize=25)
+    # Saves the image into charts
+    plt.savefig("charts/"+titles[index]+".png")
     # Shows the graph
     plt.show()
 
