@@ -29,5 +29,15 @@ df['calories'].plot.pie(
     shadow=True,
     explode=(0.15, 0, 0, 0, 0, 0)
 )
-
+plt.subplots_adjust(
+    left=0.1,
+    bottom=0.1,
+    right=0.7)
+plt.legend(
+    title="Food Item:",
+    fontsize=11,
+    bbox_to_anchor=(0.95, 0.95),
+    loc="upper right",
+    bbox_transform=plt.gcf().transFigure)
+plt.title("Calories", fontsize=25)
 plt.show()
