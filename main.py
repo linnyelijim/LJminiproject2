@@ -6,7 +6,6 @@ import pandas as pd
 import requests
 import matplotlib.pyplot as plt
 
-
 query = 'Chickpea, Sweet Potato, Quinoa, Yellow Onion, Red Pepper, Hummus, and Kale'
 api_url = 'https://api.api-ninjas.com/v1/nutrition?query={}'.format(query)
 response = requests.get(api_url, headers={'X-Api-Key': 'AhHrFOWAF95xn1IcbTAkpw==cl8yizGZUtZHtWLL'})
@@ -18,3 +17,17 @@ else:
 df = pd.read_json(response.text)
 print(df)
 
+df['calories'].plot.pie(
+    ylabel=None,
+    subplots=True,
+    legend=True,
+    labels=df['name'],
+    colors=["pink", "goldenrod", "tan", "bisque", "lemonchiffon", "darkolivegreen"],
+    autopct="%.2f",
+    fontsize=15,
+    figsize=(9, 5),
+    shadow=True,
+    explode=(0.15, 0, 0, 0, 0, 0)
+)
+
+plt.show()
